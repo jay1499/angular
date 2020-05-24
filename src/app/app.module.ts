@@ -22,6 +22,9 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import  { LeaderService } from './services/leader.service';
+import { PromotionService } from './services/promotion.service';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,6 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     AboutComponent,
     HomeComponent,
     ContactComponent
-   
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     AppRoutingModule
   ],
   providers: [
-    DishService],
+    DishService,PromotionService,LeaderService],
   bootstrap: [AppComponent]
 
 })
