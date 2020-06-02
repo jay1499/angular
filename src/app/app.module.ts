@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { baseURL } from './shared/baseurl';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
@@ -38,6 +39,9 @@ import { PromotionService } from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
 
 @NgModule({
   declarations: [
@@ -72,13 +76,20 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     AppRoutingModule,
     MatSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
    entryComponents: [
         LoginComponent
   ],
   providers: [
-    DishService,PromotionService,LeaderService],
+    DishService,
+    PromotionService,
+    LeaderService,
+    ProcessHTTPMsgService,
+    {provide: 'BaseURL', useValue: baseURL}
+  ],
+
   bootstrap: [AppComponent]
 
 })
